@@ -23,7 +23,8 @@ for line in lines:
         filename = source_path.split('/')[-1]
         current_path = '../driving_data/IMG/' + filename
         image = cv2.imread(current_path)
-        images.append(image)
+        imageRGB = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        images.append(imageRGB)
         measurement = float(line[3])
         # Use the left [1] & right [2] camera images with correction factor applied
         if i == 1:
@@ -71,11 +72,11 @@ model.add(Dropout(0.25))
 model.add(Convolution2D(64,3,3,activation="relu"))
 model.add(Dropout(0.25))
 model.add(Flatten())
-model.add(Dense(100))
+model.add(Dense(100,activation="relu"))
 model.add(Dropout(0.5))
-model.add(Dense(50))
+model.add(Dense(50,activation="relu"))
 model.add(Dropout(0.5))
-model.add(Dense(10))
+model.add(Dense(10,activation="relu"))
 model.add(Dropout(0.5))
 model.add(Dense(1))
 

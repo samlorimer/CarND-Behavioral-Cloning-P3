@@ -58,17 +58,17 @@ My model consists of a replica of the NVidia convolution neural network for self
 
 ![alt text][image1]
 
-The model includes RELU layers to introduce nonlinearity after each convolutional layer, and the data is normalized in the model using a Keras lambda layer (code line 61). 
+The model includes RELU layers to introduce nonlinearity after each convolutional layer, and the data is normalized in the model using a Keras lambda layer (code line 62). 
 
 #### 2. Attempts to reduce overfitting in the model
 
 The model uses dropout  in order to reduce overfitting (model.py lines 64 and beyond). A lower probability of dropping was used on the early convolutional layers to avoid losing too much data, and more aggressive dropout was applied on the fully-connected layers.
 
-The model was trained and validated on different data sets (shuffled and split before each training session) to ensure that the model was not overfitting (code line 85). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets (shuffled and split before each training session) to ensure that the model was not overfitting (code line 86). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 84).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 85).
 
 #### 4. Appropriate training data
 
@@ -84,7 +84,7 @@ My first step was to use a convolution neural network model similar to LeNet.  I
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set while training using keras. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting.  I also found that the model didn't drive around the track terribly effectively!
 
-To improve the driving, I then changed the architecture to match the NVidia self-driving architecture.  To tackle the overfitting, I modified the model so that dropout was applied more aggressively, also detailed above.
+To improve the driving, I then changed the architecture to match the NVidia self-driving architecture.  To tackle the overfitting, I modified the model so that dropout was applied more aggressively, also detailed above.  I also ensured the image files were being used in the same colour format for training as they were by drive.py when running the model.
 
 This improved the MSE difference between the training and validation set and also saw the car begin to successfully drive around most of the track.
 
@@ -94,7 +94,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 6. Final Model Architecture
 
-The final model architecture (model.py lines 60-80) consisted of a convolution neural network matching the NVidia architecture (detailed above).  The decision to use dropout to reduce overfitting and rates of dropout applied are also detailed above.
+The final model architecture (model.py lines 61-81) consisted of a convolution neural network matching the NVidia architecture (detailed above).  The decision to use dropout to reduce overfitting and rates of dropout applied are also detailed above.
 
 #### 7. Creation of the Training Set & Training Process
 
